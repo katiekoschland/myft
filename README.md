@@ -24,4 +24,6 @@ Bonus points, the site should:
   * Uses Origami Components
   * Works offline
 
-  
+
+- setup npm and bower
+- setup .eslintrc.js

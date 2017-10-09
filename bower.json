@@ -1,0 +1,17 @@
+{
+  "name": "myft",
+  "description": "Aim:",
+  "main": "index.js",
+  "authors": [
+    "katiekoschland <katie.koschland@ft.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

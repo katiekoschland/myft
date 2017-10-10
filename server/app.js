@@ -1,11 +1,13 @@
 //import express and express handlebars modules
 const express = require('express');
 const exphbs = require('express-handlebars');
-
 const request = require('request');
-const apiKey = 'a7anxw8mdqq33pfnavcaq66s';
+// const headlines = require('./headlines.js');
 
 const app = express();
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 let handlebars = exphbs.create({
   defaultLayout: 'main',
@@ -23,14 +25,32 @@ app.get('/', (req,res) => {
 });
 
 app.post('/', (req,res) => {
-  const url = `http://api.ft.com/content/search/v1?apiKey=${apiKey}`;
-  request(url, (err, response, body) => {
-    if (err) {
-      res.render('../views/layouts/main.html');
+  const isomorphicFetch = require('isomorphic-fetch');
+  const query = req.body.query
+
+  const body = JSON.stringify({
+    'queryString': `${query}`,
+    'resultContext' : {
+       'aspects' :[ 'title','lifecycle','location','summary','editorial' ],
+       'offset' : '100'
+      }
+  });
+
+  fetch('//api.ft.com/content/search/v1/', {
+    method: 'POST',
+    body: body,
+    headers: {
+      'x-api-key': 'a7anxw8mdqq33pfnavcaq66s',
+      'content-type': 'application/JSON'
     }
-    else {
-      let headlines = JSON.parse(body);
-    }
+  }).then( response => {
+    console.log(body)
+    // console.log(response.status);
+    // console.log(response.headers);
+    // console.log(response.url);
+  })
+  .catch(e => {
+    throw e;
   });
 });
 

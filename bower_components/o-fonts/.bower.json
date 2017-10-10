@@ -1,0 +1,20 @@
+{
+  "name": "o-fonts",
+  "main": [
+    "main.scss"
+  ],
+  "ignore": [
+    ""
+  ],
+  "homepage": "https://github.com/Financial-Times/o-fonts",
+  "version": "3.0.2",
+  "_release": "3.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.2",
+    "commit": "19111b91b493274a22ace3199364c142f009fcf9"
+  },
+  "_source": "https://github.com/Financial-Times/o-fonts.git",
+  "_target": "^3.0.0",
+  "_originalSource": "o-fonts"
+}

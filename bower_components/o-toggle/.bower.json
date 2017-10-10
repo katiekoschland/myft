@@ -1,0 +1,17 @@
+{
+  "name": "o-toggle",
+  "main": [
+    "main.js"
+  ],
+  "homepage": "https://github.com/Financial-Times/o-toggle",
+  "version": "1.1.7",
+  "_release": "1.1.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.7",
+    "commit": "a676da05ee9db651a7bcb7328cdb6210d63183d8"
+  },
+  "_source": "https://github.com/Financial-Times/o-toggle.git",
+  "_target": "^1.0.0",
+  "_originalSource": "o-toggle"
+}

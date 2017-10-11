@@ -14,7 +14,7 @@ Aim:
 Bonus points, the site should:
 
   * Be built using javascript and Node.js
-  * Be deployed on Heroku
+  * Be deployed on Heroku - https://kt-headlines.herokuapp.com/
   * Not rely too heavily on client-side frameworks (i.e. Angular, React) or libraries like jQuery
   * Have a similar look and feel as ft.com
   * Be performant over 3G networks
@@ -23,7 +23,3 @@ Bonus points, the site should:
 
   * Uses Origami Components
   * Works offline
-
-
-- setup npm and bower
-- setup .eslintrc.js

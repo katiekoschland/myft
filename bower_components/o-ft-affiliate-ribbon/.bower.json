@@ -1,0 +1,31 @@
+{
+  "name": "o-ft-affiliate-ribbon",
+  "description": "FT affiliation ribbon",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": [
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-colors": "^4.0.1",
+    "o-grid": "^4.3.0",
+    "o-assets": "^3.0.0"
+  },
+  "homepage": "https://github.com/Financial-Times/o-ft-affiliate-ribbon",
+  "version": "3.0.0",
+  "_release": "3.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.0",
+    "commit": "fdf1ea75336695cb44a97dea2d50fb9abc1cf769"
+  },
+  "_source": "https://github.com/Financial-Times/o-ft-affiliate-ribbon.git",
+  "_target": "^3.0.0",
+  "_originalSource": "o-ft-affiliate-ribbon",
+  "_direct": true
+}

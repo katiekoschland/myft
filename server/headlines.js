@@ -1,24 +1,23 @@
 const isomorphicFetch = require('isomorphic-fetch');
 
+const query = req.body.query;
+
 const body = JSON.stringify({
-  'queryString': 'banks',
+  'queryString': `${query}`,
   'resultContext' : {
      'aspects' :[ 'title','lifecycle','location','summary','editorial' ],
-     'offset' : '100'
     }
 });
 
-fetch('//api.ft.com/content/search/v1/', {
+fetch('//api.ft.com/content/search/v1', {
   method: 'POST',
   body: body,
   headers: {
     'x-api-key': 'a7anxw8mdqq33pfnavcaq66s',
-    'content-type': 'application/JSON'
+    'content-type': 'application/javascript'
   }
-}).then( response => {
-  console.log(response.status);
-  console.log(response.headers);
-  console.log(response.url);
+}).then(response => {
+console.log(res)
 })
 .catch(e => {
   throw e;

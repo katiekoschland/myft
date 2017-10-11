@@ -43,5 +43,11 @@
         </form>
       </div>
     </div>
+    <br><br><br>
+    <div>
+      {{#each queryResult.results}}
+      <li>{{title.title}}</li>
+      {{/each}}
+    </div>
   </body>
   </html>

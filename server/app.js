@@ -2,7 +2,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const request = require('request');
-// const headlines = require('./headlines.js');
+// const ftApi = require('./headlines.js');
+const isomorphicFetch = require('isomorphic-fetch');
 
 const app = express();
 
@@ -25,33 +26,24 @@ app.get('/', (req,res) => {
 });
 
 app.post('/', (req,res) => {
-  const isomorphicFetch = require('isomorphic-fetch');
-  const query = req.body.query
+  const query = req.body.query;
+  const options = { method: 'POST',
+  url: 'http://api.ft.com/content/search/v1',
+  headers:
+  { 'content-type': 'application/javascript',
+  'x-api-key': 'a7anxw8mdqq33pfnavcaq66s' },
+  body:
+  `{"queryString": "${query}",
+  "resultContext" : {"aspects" :["title"]}}`
+};
 
-  const body = JSON.stringify({
-    'queryString': `${query}`,
-    'resultContext' : {
-       'aspects' :[ 'title','lifecycle','location','summary','editorial' ],
-       'offset' : '100'
-      }
-  });
+request(options, (error, response, body) => {
+  if (error) throw new Error(error);
 
-  fetch('//api.ft.com/content/search/v1/', {
-    method: 'POST',
-    body: body,
-    headers: {
-      'x-api-key': 'a7anxw8mdqq33pfnavcaq66s',
-      'content-type': 'application/JSON'
-    }
-  }).then( response => {
-    console.log(body)
-    // console.log(response.status);
-    // console.log(response.headers);
-    // console.log(response.url);
-  })
-  .catch(e => {
-    throw e;
-  });
+  const queryBody = JSON.parse(body);
+  const queryResult = queryBody.results[0];
+  res.render(('../views/layouts/main.html'), {queryResult: queryResult});
+});
 });
 
 const PORT = process.env.PORT || 5000;

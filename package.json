@@ -17,6 +17,7 @@
     "express": "^4.16.1",
     "express-handlebars": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
+    "node-fetch": "^1.7.3",
     "request": "^2.83.0"
   },
   "devDependencies": {

@@ -5,8 +5,8 @@ const query = req.body.query;
 const body = JSON.stringify({
   'queryString': `${query}`,
   'resultContext' : {
-     'aspects' :[ 'title','lifecycle','location','summary','editorial' ],
-    }
+    'aspects' :[ 'title','lifecycle','location','summary','editorial' ],
+  }
 });
 
 fetch('//api.ft.com/content/search/v1', {
@@ -17,7 +17,7 @@ fetch('//api.ft.com/content/search/v1', {
     'content-type': 'application/javascript'
   }
 }).then(response => {
-console.log(res)
+  console.log(res)
 })
 .catch(e => {
   throw e;

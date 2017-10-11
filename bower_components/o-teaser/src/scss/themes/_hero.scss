@@ -1,0 +1,220 @@
+/// Base styles for a hero layout teaser
+@mixin oTeaserHero {
+	display: flex;
+	flex-flow: column nowrap;
+
+	.o-teaser__content {
+		@include oColorsFor('o-teaser-hero', background);
+		border: 0;
+	}
+
+	.o-teaser__meta:after {
+		@include oTypographyMargin($top: 1, $bottom: 3);
+		content: '';
+		display: block;
+		width: 60px;
+		border-bottom: oTypographySpacingSize(1) solid oColorsGetPaletteColor('claret');
+	}
+}
+
+/// Base styles for themed hero teasers
+@mixin oTeaserHeroThemeBase {
+	@include oTeaserInverse;
+
+	&.o-teaser--hero {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			border: 0;
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				top: 0;
+				border: 0;
+			}
+		}
+	}
+}
+
+/// Hero opinion theme - blue background white based text
+@mixin oTeaserHeroOpinion {
+	.o-teaser__heading:hover,
+	.o-teaser__heading:focus,
+	.o-teaser__tag:hover,
+	.o-teaser__tag:focus {
+		@include oColorsFor('o-teaser-hero-opinion', text, 73);
+	}
+
+	.o-teaser__standfirst,
+	.o-teaser__timestamp,
+	.o-teaser__timestamp-prefix:before {
+		@include oColorsFor('o-teaser-hero-opinion', text, 80);
+	}
+
+	.o-teaser__timestamp-prefix:before {
+		background-color: oColorsMix(oColorsGetPaletteColor('white'), oColorsGetColorFor('o-teaser-hero-opinion', background), 80);
+	}
+
+	&.o-teaser--hero {
+		.o-teaser__content,
+		.o-teaser__image-container:after {
+			@include oColorsFor('o-teaser-hero-opinion', background);
+		}
+
+		.o-teaser__content:after {
+			@include oGridRespondTo(S, L) {
+				@include oColorsFor('o-teaser-hero-opinion', background);
+			}
+		}
+	}
+}
+
+/// Hero image theme styles - full size image with text overlay
+@mixin oTeaserHeroImage {
+	@include oGridRespondTo($until: M) {
+		@include oTeaserHeroCentre;
+		@include oTeaserHeroCentreImage;
+	}
+
+	@include oGridRespondTo(M) {
+		position: relative;
+
+		.o-teaser__image-container {
+			position: relative;
+			margin-top: 0;
+			padding-left: 0;
+			z-index: 0;
+
+			&:after {
+				display: none;
+			}
+		}
+
+		.o-teaser__content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: 100%;
+			min-height: 30%;
+			background-color: transparent;
+			background-image: linear-gradient(to bottom, rgba(oColorsGetPaletteColor('black'), 0.75), transparent);
+			pointer-events: none;
+		}
+
+		.o-teaser__heading,
+		.o-teaser__meta,
+		.o-teaser__standfirst,
+		.o-teaser__timestamp {
+			color: oColorsGetPaletteColor('white');
+			pointer-events: auto;
+		}
+
+		.o-teaser__meta:after {
+			border-bottom-color: oColorsGetPaletteColor('white');
+		}
+	}
+}
+
+@mixin oTeaserHeroMidSlice {
+	@include oGridRespondTo(M, $until: L) {
+		.o-teaser__image-container {
+			padding: 0 30%;
+		}
+	}
+}
+
+/// Hero teaser image container - for standard hero teasers
+@mixin oTeaserHeroImageContainer {
+	.o-teaser__image-container {
+		order: -1;
+		width: 100%;
+		padding-left: 30%;
+
+		&:after {
+			@include oColorsFor('o-teaser-hero', background);
+			display: block;
+			top: 50%;
+			border: 0;
+		}
+	}
+
+	.o-teaser__image {
+		max-width: 100%;
+	}
+}
+
+/// Centred hero teaser styles for centering content
+@mixin oTeaserHeroCentre {
+	.o-teaser__content {
+		text-align: center;
+	}
+
+	.o-teaser__meta:after {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+/// Centred hero teaser styles to centre image
+@mixin oTeaserHeroCentreImage {
+	.o-teaser__image-container {
+		padding: 0 15%;
+	}
+}
+
+/// Hero standalone theme styles
+@mixin oTeaserHeroStandalone {
+	.o-teaser__heading {
+		@include oTypographySize(4);
+	}
+
+	.o-teaser__image-container {
+		padding-left: 20%;
+
+		&:after {
+			top: 25%;
+			height: 75%;
+		}
+	}
+}
+
+// Hero Package theme — extra
+@mixin oTeaserHeroExtra {
+	.o-teaser__heading:hover,
+	.o-teaser__heading:focus {
+		@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
+	}
+
+	.o-teaser__tag:hover,
+	.o-teaser__tag:focus {
+		color: oColorsMix(oColorsGetPaletteColor('white'), oColorsGetColorFor(o-teaser-theme-hero-extra-highlight, text), 73);
+	}
+
+	.o-teaser__meta {
+		@include oColorsFor(o-teaser-theme-hero-extra-highlight, text);
+
+		&:after {
+			@include oColorsFor(o-teaser-theme-hero-extra-highlight, border);
+		}
+	}
+
+	.o-teaser__heading {
+		color: oColorsGetPaletteColor('white');
+	}
+
+	.o-teaser__standfirst {
+		@include oColorsFor(o-teaser-theme-hero-extra, text, 80);
+	}
+
+	.o-teaser__image-container:after,
+	.o-teaser__content {
+		@include oColorsFor(o-teaser-theme-hero-extra, background);
+	}
+
+	.o-teaser__content:after {
+		@include oGridRespondTo(S, L) {
+			@include oColorsFor(o-teaser-theme-hero-extra, background);
+		}
+	}
+}

@@ -39,10 +39,10 @@ app.post('/', (req,res) => {
 
 request(options, (error, response, body) => {
   if (error) throw new Error(error);
-
   const queryBody = JSON.parse(body);
+  const query = queryBody.query.queryString;
   const queryResult = queryBody.results[0];
-  res.render(('../views/layouts/main.html'), {queryResult: queryResult});
+  res.render(('../views/layouts/main.html'), {query: query, queryResult: queryResult});
 });
 });
 

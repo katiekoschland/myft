@@ -1,0 +1,29 @@
+@import "o-colors/main";
+@import "o-typography/main";
+
+@import "scss/states";
+@import "scss/variables";
+@import "scss/mixins";
+
+@if ($o-labels-is-silent == false) {
+	.#{$o-labels-class} {
+		@include oLabels;
+	}
+
+	@each $size, $scale in $o-labels-sizes {
+		.#{$o-labels-class}--#{$size} {
+			@include oTypographySans($scale);
+		}
+	}
+
+	@each $state, $colors in $o-labels-states {
+		@if $state != normal {
+			.#{$o-labels-class}--#{$state} {
+				@include oLabelsState($state);
+			}
+		}
+	}
+
+	// Set module to silent again
+	$o-labels-is-silent: true !global;
+}

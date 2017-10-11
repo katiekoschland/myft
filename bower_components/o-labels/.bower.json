@@ -1,0 +1,21 @@
+{
+  "name": "o-labels",
+  "main": [
+    "main.scss"
+  ],
+  "dependencies": {
+    "o-colors": "^4.0.1",
+    "o-typography": "^5.0.1"
+  },
+  "homepage": "https://github.com/Financial-Times/o-labels",
+  "version": "3.0.0",
+  "_release": "3.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.0",
+    "commit": "4fc46005cf53a7aff4247ab61d6e24050d421528"
+  },
+  "_source": "https://github.com/Financial-Times/o-labels.git",
+  "_target": "^3.0.0",
+  "_originalSource": "o-labels"
+}

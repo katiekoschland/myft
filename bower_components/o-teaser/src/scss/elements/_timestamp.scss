@@ -1,0 +1,86 @@
+/// Timestamp base styles
+@mixin oTeaserTimestamp {
+	@include oTypographySize(-2, 20px);
+	@include oColorsFor('o-teaser', text, 60);
+	display: block;
+	text-transform: uppercase;
+
+	.o-teaser__heading + &:not(:empty) {
+		margin-top: 5px;
+	}
+}
+
+/// Timestamp variant styles adding coloured prefixes.
+/// Includes keyframe declaration so must be used outside of
+/// a selector
+@mixin oTeaserTimestampVariants {
+	@keyframes live-blog-pulse {
+		0% {
+			transform: scale(1.5);
+		}
+		50% {
+			transform: scale(1);
+		}
+		100% {
+			transform: scale(1.5);
+		}
+	}
+
+	.o-teaser__timestamp--new,
+	.o-teaser__timestamp--updated,
+	.o-teaser__timestamp--inprogress {
+		color: oColorsGetPaletteColor('crimson');
+	}
+
+	.o-teaser__timestamp-prefix:before,
+	.o-teaser__timestamp--inprogress:before {
+		content: '';
+		display: inline-block;
+		margin-right: 5px;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background-color: oColorsGetColorFor('fast-ft', 'text');
+	}
+
+	.o-teaser__timestamp-prefix:before {
+		position: relative;
+		top: 1px;
+	}
+
+	.o-teaser__timestamp--inprogress {
+		position: relative;
+
+		&:before {
+			position: absolute;
+			top: 5px;
+			opacity: 0.2;
+			transform: scale(1.5);
+			animation: live-blog-pulse 1.7s ease infinite;
+		}
+	}
+
+	.o-teaser__timestamp-prefix {
+		color: inherit;
+	}
+
+	.o-teaser__timestamp--inprogress.o-teaser__timestamp-prefix:before {
+		margin-right: 7px;
+	}
+
+	.o-teaser__timestamp--comingsoon {
+		color: oColorsGetPaletteColor('live-blog-coming-soon');
+
+		.o-teaser__timestamp-prefix:before {
+			background-color: oColorsGetPaletteColor('live-blog-coming-soon');
+		}
+	}
+
+	.o-teaser__timestamp--closed {
+		color: oColorsGetPaletteColor('live-blog-closed');
+
+		.o-teaser__timestamp-prefix:before {
+			background-color: oColorsGetPaletteColor('live-blog-closed');
+		}
+	}
+}

@@ -1,0 +1,66 @@
+$o-teaser-is-silent: false;
+@import '../../main';
+
+@include oFontsIncludeAll();
+
+body {
+	background-color: oColorsGetPaletteColor('paper');
+}
+
+.demo-container {
+	@include oGridColspan((default: 12, M: 6, XL: 4));
+	width: 100%;
+	padding: 20px;
+
+	&--large {
+		@include oGridColspan((default: 12, L: 4));
+
+		&.demo-container--top-story {
+			@include oGridColspan((default: 12, L: 12));
+		}
+	}
+
+	&--inverse {
+		background-color: oColorsGetPaletteColor('black');
+	}
+
+	&--stretched {
+		display: flex;
+	}
+
+	&--big-story {
+		margin: 20px 0;
+		padding: 0 40px;
+		background-color: oColorsGetPaletteColor('wheat');
+	}
+}
+
+.image-placeholder {
+	position: relative;
+	height: 0;
+	padding-bottom: 56.25%;
+}
+
+.demo-image {
+	background-color: oColorsGetPaletteColor('white');
+}
+
+.demo-hover {
+	&.o-teaser--small a {
+		@include oColorsFor('o-teaser', text, 55);
+	}
+
+	&.o-teaser--opinion a {
+		@include oColorsFor('o-teaser-hero-opinion', text, 73);
+	}
+
+	&.o-teaser--highlight a {
+		@include oColorsFor('o-teaser-hero-highlight', text, 73);
+	}
+
+	&.o-teaser--inverse a {
+		@include oColorsFor('o-teaser-inverse', text, 60);
+	}
+}
+
+

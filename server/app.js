@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const request = require('request');
 const bbcApiKey = '537b165a4f314fedae8cb39788d4d713';
+const headlines = require('../client/js/latest-headlines.js')
 
 const app = express();
 
@@ -60,7 +61,7 @@ request(optionsBBC, (error, response, body) => {
   if (error) throw new Error(error);
   const queryBBC = JSON.parse(body);
   const bbcArticles = queryBBC.articles;
-  res.render(('./views/layouts/bbc.html'), {bbcArticles: bbcArticles});
+  res.render(('./layouts/bbc.html'), {bbcArticles: bbcArticles});
 });
 });
 

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server/app.js",
+    "build:js": " browserify ./server/app.js -o ./public/js/app.js  && browserify ./client/js/latest-headlines.js -o ./public/js/latest-headlines.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

@@ -17,7 +17,8 @@ fetch('//api.ft.com/content/search/v1', {
     'content-type': 'application/javascript'
   }
 }).then(response => {
-  console.log(res)
+  const res = JSON.parse(response);
+  console.log(res);
 })
 .catch(e => {
   throw e;

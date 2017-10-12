@@ -1,5 +1,20 @@
-Aim:
+# Installation Instructions
 
+Clone repository
+
+````
+git clone https://github.com/katiekoschland/myft
+cd myft
+````
+
+To run myft
+
+````
+npm start
+````
+# Aim
+
+````
  * To build a website that shows a list of news headlines from Financial Times. You may use the FT developer APIs to achieve this.
  * Provide a search box for users to search for headlines containing specific words (i.e. searching for "brexit" should return a list of brexit-related headlines)
  * Optionally, provide pagination for results, at 20 results per page.
@@ -11,8 +26,10 @@ Aim:
  * Responsive
  * Accessible
 
-Bonus points, the site should:
+````
+# Bonus points, the site should:
 
+````
   * Be built using javascript and Node.js
   * Be deployed on Heroku - https://kt-headlines.herokuapp.com/
   * Not rely too heavily on client-side frameworks (i.e. Angular, React) or libraries like jQuery
@@ -23,3 +40,4 @@ Bonus points, the site should:
 
   * Uses Origami Components
   * Works offline
+````

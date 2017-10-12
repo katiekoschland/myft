@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>BBC Api</title>
+  <title>BBC - Latest Headlines</title>
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-table,o-forms,o-buttons,o-header-services,o-grid,o-header,o-teaser-collection,o-grid,o-ft-affiliate-ribbon,o-footer" />
   <link rel="icon" type="image/png"  sizes="32x32" href="https://www.ft.com/__assets/creatives/brand-ft/icons/v2/favicon-194x194.png" alt="FT logo">
 </head>
@@ -38,15 +39,23 @@
     </div>
   </div>
   <br>
-  <div id="o-header-search" class="o-header__row o-header__search o--if-no-js" role="search">
-    <form class="o-header__search-form" action="/bbc" method="post" role="search" aria-label="Site search">
-      <label class="o-header__visually-hidden" for="o-header-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
-      <input class="o-header__search-term" id="o-header-search-term" name="queryBBC" type="text" placeholder="Search the BBC" required></input>
-      <button class="o-header__search-submit" type="submit">
-        Search
-        <span class="o-header__visually-hidden">Search</span>
-      </button>
-    </form>
+  <br>
+  <div class="o-grid-container">
+    <div class="o-grid-row">
+      <div data-o-grid-colspan="one-half center">
+        <div class="demo-container">
+          <div style="width: 600px; height: 400px; overflow: scroll;" class="o-teaser-collection o-teaser-collection--horizontal demo-slim-collection">
+            {{#each bbcArticles}}
+            <ul class="o-teaser-collection__items">
+              <li class="o-teaser-collection__item">
+                <h3 style="padding-right:16px;"><i>{{title}}</i></h3>
+                {{/each}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

@@ -23,3 +23,6 @@
 // .catch(e => {
 //   throw e;
 // });
+
+// const el = document.getElementById('click');
+// const latestHeadlines = document.getElementById('latest-headlines');

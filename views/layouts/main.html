@@ -43,13 +43,31 @@
     <form class="o-header__search-form" action="/" method="post" role="search" aria-label="Site search">
       <label class="o-header__visually-hidden" for="o-header-search-term">Search the <abbr title="Financial Times">FT</abbr></label>
       <input class="o-header__search-term" id="o-header-search-term" name="query" type="text" placeholder="Search the FT" required></input>
-      <button class="o-header__search-submit" type="submit">
+      <button id="click" class="o-header__search-submit" type="submit">
         Search
         <span class="o-header__visually-hidden">Search</span>
       </button>
     </form>
   </div>
   <br><br><br>
+  <div class="o-grid-container" id="latest-headlines">
+    <div class="o-grid-row">
+      <div data-o-grid-colspan="one-half center">
+        <div class="demo-container">
+          <div style="width: 600px; height: 400px; overflow: scroll;" class="o-teaser-collection o-teaser-collection--horizontal demo-slim-collection">
+            <h2>Latest Headlines</h2>
+            <ul class="o-teaser-collection__items">
+              <li class="o-teaser-collection__item">
+                {{#each ftArticles}}
+                <h3 style="padding-right:16px;"><i>{{title}}</i></h3>
+                {{/each}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="o-grid-container">
     <div class="o-grid-row">
       <div data-o-grid-colspan="one-half center">
@@ -72,7 +90,6 @@
   </div>
   <footer class="o-footer o-footer--theme-dark" data-o-component="o-footer" data-o-footer--no-js="">
     <div class="o-footer__container">
-
       <div class="o-footer__row">
         <nav class="o-footer__matrix" role="navigation" aria-label="Useful links">
           <div class="o-footer__matrix-group o-footer__matrix-group--1">

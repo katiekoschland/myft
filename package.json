@@ -8,11 +8,9 @@
     "build:js": "browserify ./server/app.js -o ./public/js/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-
   "keywords": [
     "heroku"
   ],
-
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -23,6 +21,7 @@
     "express-handlebars": "^3.0.0",
     "heroku-cli": "^6.14.34",
     "isomorphic-fetch": "^2.2.1",
+    "newsapi": "^2.0.1",
     "node-fetch": "^1.7.3",
     "request": "^2.83.0"
   },

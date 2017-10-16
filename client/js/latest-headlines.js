@@ -3,12 +3,12 @@
 
 const onClick = () => {
   console.log('HELLO')
-//   el.addEventListener( 'click', () => {
-//     console.log('hello')
-//     if (latestHeadlines.style.display === 'block') {
-//       latestHeadlines.style.display = 'none';
-//     }
-//   });
-// };
+  // el.addEventListener( 'click', () => {
+  //   console.log('hello')
+  //   if (latestHeadlines.style.display === 'block') {
+  //     latestHeadlines.style.display = 'none';
+  //   }
+  // });
 };
+// };
 onClick();

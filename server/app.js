@@ -1,9 +1,14 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const request = require('request');
-const headlines = require('../client/js/latest-headlines.js')
+const env = require('node-env-file')
+// const headlines = require('../client/js/latest-headlines.js')
 
 const app = express();
+
+if (!process.env.PRODUCTION) {
+  env(__dirname + '/../.env');
+}
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,7 +25,7 @@ app.use(express.static('public'));
 
 app.get('/', (req,res) => {
    const optionsFT = { method: 'GET',
-   url: `https://newsapi.org/v1/articles?source=financial-times&sortBy=top&apiKey=${bbcApiKey}`
+   url: `https://newsapi.org/v1/articles?source=financial-times&sortBy=top&apiKey=${process.env.BBC_API}`
  };
    request(optionsFT, (error, response, body) => {
      if (error) throw new Error(error);
@@ -36,7 +41,7 @@ app.post('/', (req,res) => {
   url: 'http://api.ft.com/content/search/v1',
   headers:
   { 'content-type': 'application/javascript',
-  'x-api-key': process.env.API_KEY},
+  'x-api-key': process.env.API_KEY },
   body:
   `{"queryString": "${query}",
   "resultContext" : {"aspects" :["title","lifecycle","location","summary","editorial" ]}}`

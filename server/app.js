@@ -1,7 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const request = require('request');
-const bbcApiKey = '537b165a4f314fedae8cb39788d4d713';
 const headlines = require('../client/js/latest-headlines.js')
 
 const app = express();
@@ -37,7 +36,7 @@ app.post('/', (req,res) => {
   url: 'http://api.ft.com/content/search/v1',
   headers:
   { 'content-type': 'application/javascript',
-  'x-api-key': 'a7anxw8mdqq33pfnavcaq66s' },
+  'x-api-key': process.env.API_KEY},
   body:
   `{"queryString": "${query}",
   "resultContext" : {"aspects" :["title","lifecycle","location","summary","editorial" ]}}`
@@ -54,7 +53,7 @@ request(options, (error, response, body) => {
 
 app.get('/bbc', (req, res) => {
   const optionsBBC = { method: 'GET',
-  url: `https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=${bbcApiKey}`
+  url: `https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=${process.env.BBC_API}`
 };
 
 request(optionsBBC, (error, response, body) => {

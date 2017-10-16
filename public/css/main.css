@@ -38,3 +38,7 @@ a {
   font-weight: italic;
   padding-right:16px;
 }
+
+.hidden {
+  display: none;
+}

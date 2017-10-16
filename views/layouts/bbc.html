@@ -33,7 +33,7 @@
     <div class="o-ft-affiliate-ribbon">
       <div class="o-ft-affiliate-ribbon__container">
         <div class="o-ft-affiliate-ribbon__row">
-          <span><a href="http://markets.ft.com/data" class="markets-data__link" data-trackable="link" style="color:white">Visit Markets Data</a></span>
+          <span><a href="http://markets.ft.com/data" class="markets-data__link" data-trackable="link">Visit Markets Data</a></span>
         </a>
       </div>
     </div>
@@ -45,11 +45,11 @@
       <div data-o-grid-colspan="one-half center">
         <h2>Latest BBC headlines</h2>
         <div class="demo-container">
-          <div style="width: 600px; height: 400px; overflow: scroll;" class="o-teaser-collection o-teaser-collection--horizontal demo-slim-collection">
+          <div id="bbc-headlines" class="o-teaser-collection o-teaser-collection--horizontal demo-slim-collection">
             {{#each bbcArticles}}
             <ul class="o-teaser-collection__items">
               <li class="o-teaser-collection__item">
-                <h3 style="padding-right:16px;"><i>{{title}}</i></h3>
+                <h3 id="latest-bbc-headlines">{{title}}</h3>
                 {{/each}}
               </li>
             </ul>

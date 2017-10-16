@@ -1,3 +1,40 @@
 body {
   background-color: #fff1e5;
 }
+
+a {
+  color: white;
+}
+
+#latest-headlines {
+  width: 600px;
+  height: 400px;
+  overflow: scroll;
+}
+
+#headline {
+  font-weight: italic;
+  padding-right:16px;
+}
+
+#query-headlines {
+  width: 600px;
+  height: 400px;
+  overflow: scroll;
+}
+
+#query-headline {
+  font-weight: italic;
+  padding-right:16px;
+}
+
+#bbc-headlines {
+  width: 600px;
+  height: 400px;
+  overflow: scroll;
+}
+
+#latest-bbc-headlines {
+  font-weight: italic;
+  padding-right:16px;
+}
